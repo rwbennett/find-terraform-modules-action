@@ -1,13 +1,13 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Find Terraform Modules'
+description: 'Find Terraform Modules'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  basedir:  # id of input
+    description: 'Directory to base search from (excludes trailing slashes)'
     required: true
-    default: '1000'
+    default: '.'
 outputs:
-  time: # output will be available to future steps
-    description: 'The current time after waiting'
+  modules: # output will be available to future steps
+    description: 'A JSON array of module paths, relative to basedir'
 runs:
   using: 'node16'
   main: 'dist/index.js'
